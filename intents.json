@@ -1,5 +1,5 @@
 {
-    "dialogues": [
+    "intents": [
       {
         "tag": "greeting",
         "patterns": [
