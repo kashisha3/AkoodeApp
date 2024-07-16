@@ -69,15 +69,48 @@
         ]
       },
       {
-        "tag": "funny",
+        "tag": "opening hours",
         "patterns": [
-          "Tell me a joke!",
-          "Tell me something funny!",
-          "Do you know a joke?"
+          "What are your opening hours?",
+          "Opening hours?",
+          "Time for which shop is open?",
+          "Time ?",
+          "Number of opening days?",
+          "Days?"
         ],
         "responses": [
-          "Why did the hipster burn his mouth? He drank the coffee before it was cool.",
-          "What did the buffalo say when his son left for college? Bison."
+          "We are open Monday to Friday from 7:00 AM to 9:00 PM, and Saturday to Sunday from 8:00 AM to 10:00 PM.",
+          "Monday to Friday(7:00AM-9:00PM), Saturday to Sunday(8:00AM - 10:00PM)",
+          "Between 8:00 am to 10:00 pm from Monday to Sunday."
+        ]
+      },
+      {
+        "tag": "location",
+        "patterns": [
+          "Where is your coffee shop located?",
+          "Location?",
+          "What is your location?",
+          "Place of shop?",
+          "Country?",
+          "Place?"
+        ],
+        "responses": [
+          "Our coffee shop is located at 123 Coffee Lane, Brewtown, USA.",
+          "123 Coffee Lane, Brewtown, USA."
+        ]
+      },
+      {
+        "tag": "Contact",
+        "patterns": [
+          "Contact details?",
+          "Can you provide your contact details?",
+          "What is your contact?",
+          "How can i contact you?",
+          "Give your contact information"
+        ],
+        "responses": [
+          "You can reach us by phone at +(123) 456-7890 or email us at info@coffeeshop.com.",
+          "Phone Number:+(123) 456-7890, email:info@coffeeshop.com."
         ]
       }
     ]
