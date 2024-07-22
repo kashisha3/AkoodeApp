@@ -63,9 +63,15 @@ def save_message(user_id, message, sender):
     conn.close()
 
 def get_chat_history(user_id):
+    # conn = init_db()
+    # cursor = conn.cursor()
+    # cursor.execute("SELECT message, sender, timestamp FROM chats WHERE user_id = ? ORDER BY timestamp", (user_id,))
+    # chat_history = [{"message": row[0], "sender": row[1]} for row in cursor.fetchall()]
+    # conn.close()
+    # return chat_history
     conn = init_db()
     cursor = conn.cursor()
-    cursor.execute("SELECT message, sender, timestamp FROM chats WHERE user_id = ? ORDER BY timestamp", (user_id,))
+    cursor.execute("SELECT message, sender FROM chats WHERE user_id = ?", (user_id,))
     chat_history = cursor.fetchall()
     conn.close()
     return chat_history
@@ -75,7 +81,15 @@ def home():
     if 'user_id' in session:
         chat_history = get_chat_history(session['user_id'])
         return render_template('index.html', chat_history=chat_history)
-    return redirect(url_for('login'))
+    else:
+        return redirect(url_for('login'))
+    
+    # if 'user_id' in session:
+    #     chat_history = get_chat_history(session['user_id'])
+    #     return render_template('index.html', chat_history=chat_history)
+    
+    # return redirect(url_for('login'))
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -118,12 +132,26 @@ def logout():
     session.pop('user_id', None)
     return redirect(url_for('login'))
 
+# @app.route('/get_response', methods=['POST'])
+# def get_chatbot_response():
+#     if 'user_id' not in session:
+#         return jsonify({"response": "User not logged in."}), 401
+    
+#     user_input = request.json.get('msg')  # Use .json.get() for JSON requests
+#     user_id = session['user_id']
+    
+#     save_message(user_id, user_input, "You")
+    
+#     bot_response = get_response(user_input)
+#     save_message(user_id, bot_response, bot_name)
+    
+#     return jsonify({"response": bot_response})
 @app.route('/get_response', methods=['POST'])
 def get_chatbot_response():
     if 'user_id' not in session:
         return jsonify({"response": "User not logged in."}), 401
     
-    user_input = request.json.get('msg')  # Use .json.get() for JSON requests
+    user_input = request.json.get('msg')
     user_id = session['user_id']
     
     save_message(user_id, user_input, "You")
@@ -131,7 +159,15 @@ def get_chatbot_response():
     bot_response = get_response(user_input)
     save_message(user_id, bot_response, bot_name)
     
-    return jsonify({"response": bot_response})
+    # Fetch the latest message to get its timestamp
+    latest_message = get_chat_history(user_id)[-1]
+    
+    return jsonify({
+        "response": bot_response,
+        "sender": bot_name,
+        # "timestamp": latest_message['timestamp']
+    })
+
 
 if __name__ == "__main__":
     app.run(debug=True)

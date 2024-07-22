@@ -18,7 +18,6 @@ def init_db():
             user_id INTEGER,
             message TEXT NOT NULL,
             sender TEXT NOT NULL,
-            timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
             FOREIGN KEY (user_id) REFERENCES users(id)
         )
     ''')
