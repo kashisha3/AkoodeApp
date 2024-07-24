@@ -59,51 +59,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chatbot Interface</title>
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #17202A;
-            color: #EAECEE;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-        #chat-container {
-            width: 400px;
-            background-color: #2C3E50;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        #messages {
-            height: 300px;
-            overflow-y: scroll;
-            border: 1px solid #ABB2B9;
-            padding: 10px;
-            margin-bottom: 10px;
-            border-radius: 5px;
-        }
-        #input-container {
-            display: flex;
-        }
-        #user-input {
-            flex: 1;
-            padding: 10px;
-            border: 1px solid #ABB2B9;
-            border-radius: 5px;
-        }
-        #send-button {
-            padding: 10px;
-            border: none;
-            background-color: #ABB2B9;
-            color: #17202A;
-            cursor: pointer;
-            margin-left: 10px;
-            border-radius: 5px;
-        }
-    </style>
+    
 </head>
 <body>
     <div id="chat-container">
@@ -150,20 +106,57 @@
 </body>
 </html> -->
 
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ChatBot</title>
     <style>
-        body { font-family: Arial, sans-serif; }
-        .chat-box { width: 500px; margin: 50px auto; }
-        .chat-history { border: 1px solid #ccc; height: 300px; padding: 10px; overflow-y: scroll; }
-        .chat-history p { margin: 5px 0; }
-        .input-box { display: flex; }
-        .input-box input { flex: 1; padding: 10px; }
-        .input-box button { padding: 10px; }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            color: #000000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        #chat-container {
+            width: 400px;
+            background-color: #2C3E50;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(183, 180, 180, 0.1);
+        }
+        #messages {
+            height: 300px;
+            overflow-y: scroll;
+            border: 1px solid #ABB2B9;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+        #input-container {
+            display: flex;
+            background: #000;
+        }
+        #user-input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ABB2B9;
+            border-radius: 5px;
+        }
+        #send-button {
+            padding: 10px;
+            border: none;
+            background-color: #ABB2B9;
+            color: #17202A;
+            cursor: pointer;
+            margin-left: 10px;
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
@@ -175,9 +168,7 @@
             {% for message, sender in chat_history %}
                 <p><strong>{{ sender }}:</strong> {{ message }}</p>
             {% endfor %}
-            <!-- {% for entry in chat_history %}
-            <p>{{ entry.sender }}: {{ entry.message }} ({{ entry.timestamp }})</p>
-            {% endfor %} -->
+            
         </div>
         <div class="input-box">
             <input type="text" id="user-input" placeholder="Type a message...">
@@ -199,6 +190,132 @@
                     const chatHistory = document.getElementById('chat-history');
                     chatHistory.innerHTML += `<p><strong>You:</strong> ${userInput}</p>`;
                     chatHistory.innerHTML += `<p><strong>Bot:</strong> ${data.response}</p>`;
+                    chatHistory.scrollTop = chatHistory.scrollHeight;
+                    document.getElementById('user-input').value = '';
+                });
+            }
+        }
+    </script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatBot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #17202A;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .logout {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+        .logout a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 0.75cm;
+        }
+        .chat-box {
+            width: 400px;
+            background-color: #2C3E50;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 40px rgba(255, 255, 255, 0.1);
+        }
+        .chat-history {
+            height: 300px;
+            overflow-y: scroll;
+            border: 1px solid #ABB2B9;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            background-color: #2C3E50;
+            color: #ffffff;
+        }
+        .input-box {
+            display: flex;
+            background-color: #2C3E50;
+            color: white;
+        }
+        #user-input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ABB2B9;
+            border-radius: 5px;
+            background-color: #2C3E50;
+            color: white;
+        }
+        .input-box button {
+            padding: 10px;
+            border: none;
+            background-color: #ABB2B9;
+            color: #17202A;
+            cursor: pointer;
+            margin-left: 10px;
+            border-radius: 5px;
+            color: white;
+        }
+
+        #user-input placeholder{
+            color: #ffffff;
+        }
+
+        .chat-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .chat-heading {
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="logout">
+        <a href="{{ url_for('logout') }}">Logout</a>
+    </div>
+    
+    <div class="chat-container">
+        <h1 class="chat-heading">Chat with Chatbot</h1>
+        <div class="chat-box">
+            <div class="chat-history" id="chat-history">
+                {% for message, sender in chat_history %}
+                    <p><strong>{{ sender }}:</strong> {{ message }}</p>
+                {% endfor %}
+            </div>
+            <div class="input-box">
+                <input type="text" id="user-input" placeholder="Type a message...">
+                <button onclick="sendMessage()">Send</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        function sendMessage() {
+            const userInput = document.getElementById('user-input').value;
+            if (userInput) {
+                fetch('/get_response', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ msg: userInput })  // Ensure the key is 'msg'
+                })
+                .then(response => response.json())
+                .then(data => {
+                    const chatHistory = document.getElementById('chat-history');
+                    chatHistory.innerHTML += `<p><strong>You:</strong> ${userInput}</p>`;
+                    chatHistory.innerHTML += `<p><strong>Sera:</strong> ${data.response}</p>`;
                     chatHistory.scrollTop = chatHistory.scrollHeight;
                     document.getElementById('user-input').value = '';
                 });
