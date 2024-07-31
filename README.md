@@ -4,19 +4,22 @@ Welcome to the AkoodeApp project repository! This chatbot application is designe
 
 This chatbot application is designed to provide an interactive and personalized experience with user authentication and chat history management. Built using Python, Flask, and PyTorch, the application allows users to register and log in, ensuring that their chat sessions are secure and personalized. Once logged in, users can interact with the chatbot, and their conversations are stored in a SQLite database, enabling them to retrieve previous chats upon subsequent logins. The frontend is developed using HTML templates with Flask’s templating engine, providing a seamless user interface that includes login, registration, and chat functionalities. The chatbot's responses are generated using a neural network model trained on specific intents, making it capable of responding appropriately to various user queries.
 
+
 ## Table of Contents
 
--[Introduction](#introduction)
--[Features](#features)
--[Requirements](#requirements)
--[Installation](#installation)
--[Usage](#usage)
--[Technologies Used](#technologiesused)
--[Contributors](#contributors)
+- [Introduction](#introduction)
+- [Features](#features)
+- [Requirements](#requirements)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Technologies Used](#technologiesused)
+- [Contributors](#contributors)
+
 
 ## Introduction
 
 The AkoodeApp is an intelligent chatbot application built using Python, Flask, and PyTorch. It allows users to register and log in, ensuring that their chat sessions are secure and personalized. Once logged in, users can interact with the chatbot, and their conversations are stored in a SQLite database, enabling them to retrieve previous chats upon subsequent logins. The frontend is developed using HTML templates with Flask’s templating engine, providing a seamless user interface that includes login, registration, and chat functionalities. The chatbot's responses are generated using a neural network model trained on specific intents, making it capable of responding appropriately to various user queries.
+
 
 ## Features
 
@@ -54,12 +57,21 @@ To get a local copy up and running, follow these simple steps:
     pip install -r requirements.txt
 
     ```
-
 4. **Install npm dependencies:**
- ```sh
+   ```sh
     npm install
+ 
+   ```
+5. **Install Flask**
+   ```sh
+   pip install Flask==2.0.2
 
- ```
+   ```
+6. **Install PyTorch:**
+   ```sh
+   pip install torch
+   ```
+
 
 ## Usage
 
