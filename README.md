@@ -6,13 +6,13 @@ This chatbot application is designed to provide an interactive and personalized 
 
 ## Table of Contents
 
--Introduction(#introduction)
--Features(#features)
--Requirements(#requirements)
--Installation(#installation)
--Usage(#usage)
--Technologies Used(#technologiesused)
--Contributors(#contributors)
+-[Introduction](#introduction)
+-[Features](#features)
+-[Requirements](#requirements)
+-[Installation](#installation)
+-[Usage](#usage)
+-[Technologies Used](#technologiesused)
+-[Contributors](#contributors)
 
 ## Introduction
 
@@ -20,20 +20,20 @@ The AkoodeApp is an intelligent chatbot application built using Python, Flask, a
 
 ## Features
 
--**User Authentication:** Secure login and registration system.
--**Chat History:** Stores and retrieves chat history for each user.
--**Interactive Chatbot:** Neural network-based responses for user queries.
--**Responsive UI:** Visually appealing interface using HTML, CSS, and Bootstrap.
+1. **User Authentication:** Secure login and registration system.
+2. **Chat History:** Stores and retrieves chat history for each user.
+3. **Interactive Chatbot:** Neural network-based responses for user queries.
+4. **Responsive UI:** Visually appealing interface using HTML, CSS, and Bootstrap.
 
 
 ## Requirements
--Python 3.x
--Flask Version: 2.0.1
--PyTorch
--SQLite
--NLTK
--npm
--pip
+- Python 3.x
+- Flask Version: 2.0.1
+- PyTorch
+- SQLite
+- NLTK
+- npm
+- pip
 
 
 ## Installation
